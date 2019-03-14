@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" class="form-control" required ngModel #nm="ngModel"/>
+    <span class="help-block" *ngIf="!nm.valid && nm.touched">This field is required!</span>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" class="form-control" required email ngModel #em="ngModel">
+    <span class="help-block" *ngIf="!em.valid && em.touched">This field is required!</span>
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password</label>
+    <input type="password" name="password" id="pwd" class="form-control" required ngModel #ps="ngModel">
+    <span class="help-block" *ngIf="!ps.valid && ps.touched">This field is required!</span>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!f.valid">Create Editor</button>
+</form>

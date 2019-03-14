@@ -1,0 +1,10 @@
+.myLink
+{
+  color: black;
+  width: 80%;
+}
+.active
+{
+  color: #fff;
+  /* background-color: green; */
+}

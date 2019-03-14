@@ -1,0 +1,12 @@
+input.ng-invalid.ng-touched
+{
+  border: 1px solid red;
+}
+.l_btn
+{
+  width: 15%;
+}
+.welcome
+{
+  text-align: center;
+}

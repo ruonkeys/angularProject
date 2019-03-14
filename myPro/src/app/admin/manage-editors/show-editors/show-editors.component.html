@@ -1,0 +1,14 @@
+<div class="row editorRec" *ngFor="let editor of editorsList; let i = index">
+  <div class="col-md-8 edDetails">
+    <div><strong>{{editor.name}}</strong></div>
+    <div><em>{{editor.email}}</em></div>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-success stBtn" (click)="changeStatus(i)" id="myBtn">
+      {{ (editor.enabled) ? 'disable' : 'enable' }}
+    </button>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-danger stBtn" (click)="deleteEditor(editor.id)">delete</button>
+  </div>
+</div>

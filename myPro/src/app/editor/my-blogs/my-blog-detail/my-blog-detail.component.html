@@ -1,0 +1,25 @@
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" [ngModel]="blog.title" class="form-control" required ngModel #t="ngModel"/>
+      <span class="help-block" *ngIf="!t.valid && t.touched">This field is required!</span>
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea name="content" rows="8" id="content" [ngModel]="blog.content" class="form-control" required ngModel #c="ngModel"></textarea>
+      <span class="help-block" *ngIf="!c.valid && c.touched">This field is required!</span>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select class="form-control" name="category" id="category" [ngModel]="blog.category" required ngModel #cat="ngModel">
+        <option [value]="catg.name" *ngFor="let catg of catgs">{{catg.name}}</option>
+      </select>
+      <span class="help-block" *ngIf="!cat.valid && cat.touched">This field is required!</span>
+    </div>
+    <div class="form-group">
+      <label for="d">Date:</label>
+      <input type="date" id="d" name="blogDate" class="form-control" [ngModel]="blog.blogDate" required ngModel #d="ngModel"/>
+      <span class="help-block" *ngIf="!d.valid && d.touched">This field is required!</span>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!f.valid">Save</button>
+  </form>

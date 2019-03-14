@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <ul class="list-group">
+        <a class="list-group-item" style="cursor: pointer"
+         routerLinkActive="active"
+         [routerLink]="blog.id" *ngFor="let blog of blogs">
+          <strong>{{blog.title}}</strong>
+        </a>
+      </ul>
+    </div>
+    <div class="col-md-1">
+      <div *ngFor="let blog of blogs">
+        <button class="btn btn-danger mBtn" (click)="onDelete(blog.id)">X</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <router-outlet></router-outlet>
+      <div *ngIf="shwDef && blogs.length>0"><strong>Please select a blog</strong></div>
+      <!-- <div *ngIf="!(typeof blogs != 'undefined' && blogs != null && blogs.length != null && blogs.length > 0)"> -->
+      <div *ngIf="!(blogs != null && blogs.length != null && blogs.length > 0)">
+        <strong>You have not written any blog</strong>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <span class="navbar-brand">Blogs</span>
+    </div>
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active"><a routerLink="/admin">Go to Admin</a></li>
+      <li routerLinkActive="active"><a routerLink="/editor">Go to Editor</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- -----------------------------------------header------------------------------------------------ -->
+
+<div class="container">
+
+  <!-- ################################filters################################# -->
+  <!-- <div class="row">
+    <div class="col-md-3">
+      <select name="" id="">
+        <option value=""></option>
+      </select>
+    </div>
+    <div class="col-md-1"><button class="btn btn-primary">filter by editor</button></div>
+    <div class="col-md-3">
+      <select name="" id="">
+
+      </select>
+    </div>
+    <div class="col-md-1"><button class="btn btn-primary">filter by category</button></div>
+    <div class="col-md-3">
+      <select name="" id=""></select>
+    </div>
+    <div class="col-md-1"><button class="btn btn-primary">filter by date</button></div>
+  </div> -->
+
+  <!-- ################################################################# -->
+
+
+  <div class="panel panel-default" (click)="onBlogClick()" *ngFor="let blog of blogLst">
+    <div class="panel-heading">{{blog.title}}</div>
+    <div class="panel-body">
+      {{blog.content}}
+      <hr/>
+      <div class="dispTxt">Written by: <span>{{blog.editorName}}</span></div>
+      <div class="dispTxt">date: <span>{{blog.blogDate}}</span></div>
+    </div>
+  </div>
+</div>

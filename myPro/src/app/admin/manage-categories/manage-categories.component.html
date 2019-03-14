@@ -1,0 +1,53 @@
+<div class="container">
+  <!-- <form #catF="ngForm">
+    <div class="row catDiv" *ngFor="let cat of categories">
+      <div class="col-md-8">
+        <input type="text" [ngModel]="cat.name" [disabled]="!(editId === cat.id)"
+         class="form-control" name="category" required #chgInpRef ngModel/>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-success catBtn"
+         type="button"
+         [disabled]="!catF.valid"
+         (click)="onChange(chgInpRef, cat.id)">
+          {{ (editId === cat.id) ? 'Update' : 'Change' }}
+        </button>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-danger catBtn" (click)="onDelete(cat.id)">Delete</button>
+      </div>
+    </div>
+  </form> -->
+
+  <div class="row catDiv" *ngFor="let cat of categories">
+    <div class="col-md-8">
+      <input type="text" [value]="cat.name" [disabled]="!(editId === cat.id)"
+       class="form-control" name="cat" #chgInpRef/>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-success catBtn"
+       type="button"
+       id="updateBtn"
+       (click)="onChange(chgInpRef, cat.id)">
+        {{ (editId === cat.id) ? 'Update' : 'Change' }}
+      </button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-danger catBtn" (click)="onDelete(cat.id)">Delete</button>
+    </div>
+  </div>
+
+
+  <div class="row catDiv" *ngIf="isAddClicked">
+    <div class="col-md-8">
+      <input type="text" class="form-control" required #inpRef/>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-success catBtn" (click)="onSave(inpRef)">Save</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-danger catBtn" (click)="onCancel()">Cancel</button>
+    </div>
+  </div>
+  <button class="btn btn-primary" *ngIf="!isAddClicked" (click)="onAddMore()">Add More</button>
+</div>
